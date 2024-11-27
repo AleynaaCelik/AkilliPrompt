@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AkilliPrompt.Domain\AkilliPrompt.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

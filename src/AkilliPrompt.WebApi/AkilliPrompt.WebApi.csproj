@@ -18,4 +18,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AkilliPrompt.Persistance\AkilliPrompt.Persistance.csproj" />
+  </ItemGroup>
+
 </Project>
