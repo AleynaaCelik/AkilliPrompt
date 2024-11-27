@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.Domain", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.Persistance", "src\AkilliPrompt.Persistance\AkilliPrompt.Persistance.csproj", "{86FECB10-9A5C-4E4D-96BE-B6E0E123B5D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkilliPrompt.WebApi", "src\AkilliPrompt.WebApi\AkilliPrompt.WebApi.csproj", "{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{86FECB10-9A5C-4E4D-96BE-B6E0E123B5D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86FECB10-9A5C-4E4D-96BE-B6E0E123B5D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86FECB10-9A5C-4E4D-96BE-B6E0E123B5D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5D962094-8AC9-4A08-B475-3E823D6F5D81} = {6439C54A-1F1C-41F5-88CD-F7C4B77AD42B}
 		{86FECB10-9A5C-4E4D-96BE-B6E0E123B5D9} = {6439C54A-1F1C-41F5-88CD-F7C4B77AD42B}
+		{1A548E22-B0E9-4EB4-87F8-3AA724CE0EE3} = {6439C54A-1F1C-41F5-88CD-F7C4B77AD42B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F5999EA3-28A7-4B06-820C-D860082E7AAD}
