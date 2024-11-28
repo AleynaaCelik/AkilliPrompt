@@ -48,7 +48,7 @@ bash
 Kodu kopyala
 
 
-git clone https://github.com/username/AkilliPrompt.git
+git clone [https://github.com/AleynaaCelik/AkilliPrompt.git]
 
 
 Gerekli bağımlılıkları yükleyin:
