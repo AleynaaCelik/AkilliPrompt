@@ -13,6 +13,9 @@ namespace AkilliPrompt.Domain.Entities
         public string Description { get; set; }
         public string Content { get; set; }
 
+        //public int SavedCount { get; set; } redis kullancam
+
+
         public ICollection<PromptCategory> PromptCategories { get; set; } = [];
     }
 }

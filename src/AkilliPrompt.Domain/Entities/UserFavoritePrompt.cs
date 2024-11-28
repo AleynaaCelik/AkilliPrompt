@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace AkilliPrompt.Domain.Entities
 {
-    public sealed  class ApplicatiionUserSavedPrompt:EntityBase
+    public sealed  class UserFavoritePrompt:EntityBase
     {
-        public long ApplicationUserId {  get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public long UserId {  get; set; }
+        public ApplicationUser User { get; set; }
 
         public long PromptId {  get; set; }
         public  Prompt Prompt { get; set; }
