@@ -1,4 +1,5 @@
 ﻿using AkilliPrompt.Domain.Common;
+using AkilliPrompt.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace AkilliPrompt.Domain.Entities
         public string? ImageUrl { get; set; }
 
         public bool IsActive { get; set; }
+
+       // public PromptLLMType PromptLLMType { get; set; }
 
         //public List<string> PlaceHolders { get; set; } = [];
 

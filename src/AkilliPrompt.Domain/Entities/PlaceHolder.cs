@@ -10,7 +10,7 @@ namespace AkilliPrompt.Domain.Entities
     public sealed class PlaceHolder:EntityBase
     {
         public string Name { get; set; }
-        public string DisplayName { get; set; }
+       // public string DisplayName { get; set; }
 
 
         public long PromptId { get; set; }
