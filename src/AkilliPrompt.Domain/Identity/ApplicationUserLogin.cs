@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace AkilliPrompt.Domain.Identity
 {
-    public sealed class ApplicationUser:IdentityUser<long>
+    public sealed class ApplicationUserLogin:IdentityUserLogin<long>
     {
-
     }
 }
