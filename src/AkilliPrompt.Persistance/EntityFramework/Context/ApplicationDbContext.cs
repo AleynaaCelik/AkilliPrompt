@@ -1,5 +1,6 @@
 ﻿using AkilliPrompt.Domain.Entities;
 using AkilliPrompt.Domain.Identity;
+using AkilliPrompt.Persistance.EntityFramework.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,10 +23,12 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser, Ap
     public DbSet<UserFavoritePrompt> UserFavoritePrompts { get; set; }
     public DbSet<UserLikePrompt> UserLikePrompts { get; set; }
 
-    //protected override void OnModelCreating(ModelBuilder builder)
-    //{
-    //    builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+      builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+        
 
-    //    //builder.ToSnakeCaseNames();
-    //}
+    builder.ToSnakeCaseNames();
+    }
 }
