@@ -1,5 +1,6 @@
 ﻿using AkilliPrompt.Domain.Common;
 using AkilliPrompt.Domain.Entities;
+using AkilliPrompt.Domain.ValueObjects;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace AkilliPrompt.Domain.Identity
 {
     public sealed class ApplicationUser:IdentityUser<long>,ICreatedByEntity,IModifiedByEntity
     {
-      
+      public  FullName FullName { get; set; }
         public DateTimeOffset  CreatedOn { get; set; }
         public string?  CreatedByUserId { get; set; }
 
