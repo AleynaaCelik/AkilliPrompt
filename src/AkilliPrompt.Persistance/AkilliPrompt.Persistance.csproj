@@ -18,8 +18,4 @@
     <ProjectReference Include="..\AkilliPrompt.Domain\AkilliPrompt.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EntityFramework\Configurations\" />
-  </ItemGroup>
-
 </Project>
