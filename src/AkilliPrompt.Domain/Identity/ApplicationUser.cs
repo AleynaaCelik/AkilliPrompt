@@ -20,6 +20,8 @@ namespace AkilliPrompt.Domain.Identity
         public string?  ModifiedByUserId { get; set; }
         public DateTimeOffset?  ModifiedAt { get; set; }
 
+
+        public ICollection<UserSocialMediaAccount> userSocialMediaAccounts { get; set; } = [];
         public ICollection<UserPromptComment> UserPromptComments { get; set; } = [];
         public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
         public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
