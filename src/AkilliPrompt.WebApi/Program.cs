@@ -1,32 +1,24 @@
-using Azure.Identity;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
+using AkilliPrompt.WebApi.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//// Azure Key Vault yapýlandýrmasý
-//builder.Configuration.AddAzureKeyVault(
-//    new Uri(builder.Configuration["AzureKeyVaultSettings:Uri"]),
-//    new ClientSecretCredential(
-//        builder.Configuration["AzureKeyVaultSettings:TenantId"],
-//        builder.Configuration["AzureKeyVaultSettings:ClientId"],
-//        builder.Configuration["AzureKeyVaultSettings:ClientSecret"]
-//    )
-//);
+// appsettings.json'dan ayarlarý yükleme
+var apiUrl = builder.Configuration["Settings:ApiUrl"];
+var clientId = builder.Configuration["Settings:ClientId"];
+var clientSecret = builder.Configuration["Settings:ClientSecret"];
 
-// Servisleri ekle
+// Örnek: Servislerinize ayarlarý aktarabilirsiniz
+builder.Services.AddSingleton(new ApiService(apiUrl, clientId, clientSecret));
+
 builder.Services.AddControllers();
-builder.Services.AddOpenApi(); // Swagger/OpenAPI desteði ekleme
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// HTTP pipeline yapýlandýrmasý
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi(); // Swagger dokümantasyonu geliþtirme ortamýnda
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
