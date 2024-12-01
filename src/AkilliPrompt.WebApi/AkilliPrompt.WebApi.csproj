@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AkilliPrompt.Domain\AkilliPrompt.Domain.csproj" />
     <ProjectReference Include="..\AkilliPrompt.Persistance\AkilliPrompt.Persistance.csproj" />
   </ItemGroup>
 

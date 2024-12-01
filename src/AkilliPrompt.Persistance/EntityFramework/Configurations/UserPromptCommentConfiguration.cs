@@ -39,7 +39,7 @@ namespace AkilliPrompt.Persistance.EntityFramework.Configurations
                 .IsRequired(false);
 
             // CreatedAt
-            builder.Property(p => p.CreatedAt)
+            builder.Property(p => p.CreatedOn)
                 .IsRequired();
 
             // CreatedByUserId

@@ -35,7 +35,7 @@ namespace AkilliPrompt.Persistance.EntityFramework.Configurations
                 .HasForeignKey(x => x.UserId);
 
             // CreatedAt
-            builder.Property(p => p.CreatedAt)
+            builder.Property(p => p.CreatedOn)
                 .IsRequired();
 
             // CreatedByUserId

@@ -34,7 +34,7 @@ namespace AkilliPrompt.Persistance.EntityFramework.Configurations
                 .IsUnique();
 
             // CreatedAt
-            builder.Property(p => p.CreatedAt)
+            builder.Property(p => p.CreatedOn)
                 .IsRequired();
 
             // CreatedByUserId
