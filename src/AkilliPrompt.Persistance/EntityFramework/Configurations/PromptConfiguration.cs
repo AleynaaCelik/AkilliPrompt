@@ -1,83 +1,96 @@
 ﻿using AkilliPrompt.Domain.Entities;
+using AkilliPrompt.Domain.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AkilliPrompt.Persistance.EntityFramework.Configurations
+namespace AkilliPrompt.Persistence.EntityFramework.Configurations;
+
+public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
 {
-    public sealed class PromptConfiguration : IEntityTypeConfiguration<Prompt>
+    public void Configure(EntityTypeBuilder<Prompt> builder)
     {
-        public void Configure(EntityTypeBuilder<Prompt> builder)
-        {
-            // Id
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+        // Id
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-            // Title
-            builder.Property(x => x.Title)
-                .IsRequired()
-                .HasMaxLength(200);
+        // Title
+        builder.Property(x => x.Title)
+            .IsRequired()
+            .HasMaxLength(200);
 
-            // Description
-            builder.Property(x => x.Description)
-                .IsRequired()
-                .HasMaxLength(5000);
+        // Description
+        builder.Property(x => x.Description)
+            .IsRequired()
+            .HasMaxLength(5000);
 
-            // Content
-            builder.Property(x => x.Content)
-                .IsRequired();
+        // Content
+        builder.Property(x => x.Content)
+            .IsRequired();
 
-            // ImageUrl
-            builder.Property(x => x.ImageUrl)
-                .HasMaxLength(1024)
-                .IsRequired(false);
+        // ImageUrl
+        builder.Property(x => x.ImageUrl)
+            .HasMaxLength(1024)
+            .IsRequired(false);
 
-            // IsActive
-            builder.Property(x => x.IsActive)
-                .IsRequired()
-                .HasDefaultValue(false);
+        // IsActive
+        builder.Property(x => x.IsActive)
+            .IsRequired()
+            .HasDefaultValue(false);
+
+        // LikeCount
+        builder.Property(x => x.LikeCount)
+            .IsRequired()
+            .HasDefaultValue(0);
+
+        builder.HasIndex(x => x.LikeCount)
+        .IsDescending()
+        .HasDatabaseName("IX_Prompts_LikeCount_Desc");
+
+        // CreatorId
+        builder.HasOne<ApplicationUser>(x => x.Creator)
+            .WithMany(x => x.CreatedPrompts)
+            .HasForeignKey(x => x.CreatorId);
+
+        // UserFavoritePrompts Relationship
+        builder.HasMany(x => x.UserFavoritePrompts)
+            .WithOne(ufp => ufp.Prompt)
+            .HasForeignKey(ufp => ufp.PromptId);
+
+        // UserLikePrompts Relationship
+        builder.HasMany(x => x.UserLikePrompts)
+            .WithOne(ulp => ulp.Prompt)
+            .HasForeignKey(ulp => ulp.PromptId);
+
+        // Placeholders Relationship
+        builder.HasMany(x => x.Placeholders)
+            .WithOne(p => p.Prompt)
+            .HasForeignKey(p => p.PromptId);
+
+        // PromptComments Relationship
+        builder.HasMany<PromptComment>(x => x.PromptComments)
+            .WithOne(y => y.Prompt)
+            .HasForeignKey(y => y.PromptId);
 
 
-            // UserFavoritePrompts Relationship
-            builder.HasMany(x => x.UserFavoritePrompts)
-                .WithOne(ufp => ufp.Prompt)
-                .HasForeignKey(ufp => ufp.PromptId);
+        // CreatedAt
+        builder.Property(p => p.CreatedOn)
+            .IsRequired();
 
-            // UserLikePrompts Relationship
-            builder.HasMany(x => x.UserLikePrompts)
-                .WithOne(ulp => ulp.Prompt)
-                .HasForeignKey(ulp => ulp.PromptId);
+        // CreatedByUserId
+        builder.Property(p => p.CreatedByUserId)
+            .IsRequired(false);
+        //.HasMaxLength(150);
 
-            // Placeholders Relationship
-            builder.HasMany(x => x.PlaceHolders)
-                .WithOne(p => p.Prompt)
-                .HasForeignKey(p => p.PromptId);
+        // ModifiedAt
+        builder.Property(p => p.ModifiedAt)
+            .IsRequired(false);
 
+        // ModifiedByUserId
+        builder.Property(p => p.ModifiedByUserId)
+            .IsRequired(false);
+        //.HasMaxLength(150);
 
-            // CreatedAt
-            builder.Property(p => p.CreatedOn)
-                .IsRequired();
-
-            // CreatedByUserId
-            builder.Property(p => p.CreatedByUserId)
-                .IsRequired(false);
-            //.HasMaxLength(150);
-
-            // ModifiedAt
-            builder.Property(p => p.ModifiedAt)
-                .IsRequired(false);
-
-            // ModifiedByUserId
-            builder.Property(p => p.ModifiedByUserId)
-                .IsRequired(false);
-            //.HasMaxLength(150);
-
-            // Table Name
-            builder.ToTable("prompts");
-        }
+        // Table Name
+        builder.ToTable("prompts");
     }
 }
