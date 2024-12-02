@@ -1,32 +1,51 @@
 ﻿using AkilliPrompt.Domain.Common;
-using AkilliPrompt.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AkilliPrompt.Domain.Identity;
 
-namespace AkilliPrompt.Domain.Entities
+namespace AkilliPrompt.Domain.Entities;
+
+public sealed class Prompt : EntityBase
 {
-    public sealed  class Prompt:EntityBase
+    public string Title { get; private set; }
+    public string Description { get; private set; }
+    public string Content { get; private set; }
+
+    public string? ImageUrl { get; private set; }
+    public bool IsActive { get; private set; }
+    public int LikeCount { get; private set; }
+
+    public Guid CreatorId { get; private set; }
+    public ApplicationUser Creator { get; private set; }
+
+    public ICollection<PromptCategory> PromptCategories { get; private set; } = [];
+    public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
+    public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
+    public ICollection<Placeholder> Placeholders { get; set; } = [];
+    public ICollection<PromptComment> PromptComments { get; set; } = [];
+
+
+    public static Prompt Create(string title, string description, string content, bool isActive, Guid creatorId)
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Content { get; set; }
-        public string? ImageUrl { get; set; }
+        return new Prompt
+        {
+            Id = Guid.CreateVersion7(),
+            Title = title,
+            Description = description,
+            Content = content,
+            IsActive = isActive,
+            CreatorId = creatorId
+        };
+    }
 
-        public bool IsActive { get; set; }
+    public void SetImageUrl(string imageUrl)
+    {
+        ImageUrl = imageUrl;
+    }
 
-       // public PromptLLMType PromptLLMType { get; set; }
-
-        //public List<string> PlaceHolders { get; set; } = [];
-
-        //public int SavedCount { get; set; } redis kullancam
-
-
-        public ICollection<PromptCategory> PromptCategories { get; set; } = [];
-        public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
-        public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
-        public ICollection<PlaceHolder> PlaceHolders { get; set; } = [];
+    public void Update(string title, string description, string content, bool isActive)
+    {
+        Title = title;
+        Description = description;
+        Content = content;
+        IsActive = isActive;
     }
 }

@@ -1,19 +1,19 @@
 ﻿using AkilliPrompt.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace AkilliPrompt.Domain.Entities;
 
-namespace AkilliPrompt.Domain.Entities
+public sealed class Placeholder : EntityBase
 {
-    public sealed class PlaceHolder:EntityBase
+    public string Name { get; set; }
+    public Guid PromptId { get; set; }
+    public Prompt Prompt { get; set; }
+
+    public static Placeholder Create(string name, Guid promptId)
     {
-        public string Name { get; set; }
-       // public string DisplayName { get; set; }
-
-
-        public long PromptId { get; set; }
-        public Prompt Prompt { get; set; }
+        return new Placeholder
+        {
+            Id = Guid.CreateVersion7(),
+            Name = name,
+            PromptId = promptId
+        };
     }
 }
