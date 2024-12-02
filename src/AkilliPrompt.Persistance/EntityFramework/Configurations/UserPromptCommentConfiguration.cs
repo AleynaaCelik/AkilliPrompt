@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace AkilliPrompt.Persistance.EntityFramework.Configurations
 {
-    public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<UserPromptComment>
+    public sealed class UserPromptCommentConfiguration : IEntityTypeConfiguration<PromptComment>
     {
-        public void Configure(EntityTypeBuilder<UserPromptComment> builder)
+        public void Configure(EntityTypeBuilder<PromptComment> builder)
         {
             // Id
             builder.HasKey(x => x.Id);
@@ -29,7 +29,7 @@ namespace AkilliPrompt.Persistance.EntityFramework.Configurations
 
             // User Relationship
             builder.HasOne(x => x.User)
-                .WithMany(u => u.UserPromptComments)
+                .WithMany(u => u.PromptComments)
                 .HasForeignKey(x => x.UserId);
 
             // Parent Comment Relationship
