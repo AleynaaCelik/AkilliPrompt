@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace AkilliPrompt.Persistance.EntityFramework.Configurations
 {
-    public sealed class ApplicationRoleConfiguration : IEntityTypeConfiguration<ApllicationRole>
+    public sealed class ApplicationRoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
     {
-        public void Configure(EntityTypeBuilder<ApllicationRole> builder)
+       
+        public void Configure(EntityTypeBuilder<ApplicationRole> builder)
         {
             // Primary key
             builder.HasKey(r => r.Id);

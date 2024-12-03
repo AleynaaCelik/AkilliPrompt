@@ -3,7 +3,6 @@ using AkilliPrompt.Domain.Identity;
 using AkilliPrompt.Persistance.EntityFramework.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.SqlServer.Dac.Model;
 using ApplicationRole = AkilliPrompt.Domain.Identity.ApplicationRole;
 
 namespace AkilliPrompt.Persistence.EntityFramework.Contexts;
