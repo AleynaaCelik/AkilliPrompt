@@ -1,4 +1,6 @@
-﻿namespace AkilliPrompt.WebApi.Models
+﻿using AkilliPrompt.Domain.ValueObjects;
+
+namespace AkilliPrompt.WebApi.Models
 {
     public sealed class ResponseDto<T>
     {
