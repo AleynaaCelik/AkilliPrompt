@@ -31,7 +31,7 @@ namespace AkilliPrompt.Persistance.EntityFramework.Configurations
 
             // User Relationship
             builder.HasOne(x => x.User)
-                .WithMany(u => u.userSocialMediaAccounts)
+                .WithMany(u => u.UserSocialMediaAccounts)
                 .HasForeignKey(x => x.UserId);
 
             // CreatedAt
