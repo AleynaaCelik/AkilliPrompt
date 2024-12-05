@@ -1,5 +1,6 @@
 ﻿using AkilliPrompt.Domain.Common;
 using AkilliPrompt.Persistence.EntityFramework.Contexts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
