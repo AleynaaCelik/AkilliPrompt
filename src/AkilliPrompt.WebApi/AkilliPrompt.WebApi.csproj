@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="Behaviors\" />
     <Folder Include="Configuration\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
