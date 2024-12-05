@@ -1,6 +1,5 @@
 ﻿using AkilliPrompt.WebApi.Attributes;
 using AkilliPrompt.WebApi.Interfaces;
-using Microsoft.EntityFrameworkCore.Storage;
 using StackExchange.Redis;
 using System.Reflection;
 using System.Text;
