@@ -1,7 +1,7 @@
 ﻿using AkilliPrompt.Domain.Common;
 using FluentValidation;
 
-namespace AkilliPrompt.WebApi.Common
+namespace AkilliPrompt.WebApi.Common.FluentValidation
 {
     public abstract class EntityExistsValidator<TEntity, TCommand> : AbstractValidator<TCommand>
      where TEntity : EntityBase
